@@ -1,0 +1,237 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #f4f4f9;
+    color: rgb(18, 18, 18);
+    position: relative;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.home-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.home-icon i {
+    margin-right: 8px;
+}
+.contact-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.contact-form h2 {
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+
+
+
+.blog {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; 
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    padding: 2rem;
+    background-color: #f4f4f4;
+}
+
+.blogs{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold
+}
+.post {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post h3 {
+    font-size: 1.8rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+.social-links ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.social-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: #0073e6;
+}
+
+
+/* Responsive Layout for Small Devices (Mobile) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.0rem;
+        font-weight: bolder;
+    }
+
+    .home-icon {
+        font-size: 0.5rem;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .contact-form {
+        margin: 20px;
+    }
+
+    .blog {
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+    }
+
+
+}
+
+/* Responsive Layout for Extra Small Devices (Mobile) */
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.875rem;
+        margin-top: 5px;
+    }
+
+    .home-icon {
+        font-size: 1.25rem;
+        top: 5px;
+        right: 5px;
+    }
+
+    .contact-form {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .contact-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form label {
+        font-size: 0.875rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.875rem;
+    }
+
+    .blog .post h3 {
+        font-size: 1.25rem;
+    }
+    .blog .post {
+        width: 100%; /* One column on mobile */
+    }
+
+    .blog .post p {
+        font-size: 0.875rem;
+    }
+
+    .social-links ul {
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .social-links ul li {
+        margin: 0 5px;
+    }
+}

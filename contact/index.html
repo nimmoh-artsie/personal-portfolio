@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="home-icon"><i class="fas fa-home"></i> Home</a>
+        
+    </header>
+    <h1 style="text-align: center;">Contact Page</h1>    
+    <p style="text-align: center;"> Reach out to me or explore my latest blog posts!</p>
+
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contactForm" action="submit_form.php" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <h2 class="blogs">My Blog Posts</h2>
+
+    <section id="blog" class="blog">
+        
+        <article class="post">
+            <h3>Responsive Web Design: Best Practices</h3>
+            <p class="post-meta">Published on November 5, 2024</p>
+            <p>Responsive web design is crucial in today's mobile-first world. In this article, we'll explore some of the best practices...</p>
+            <a href="" class="read-more">Read More</a>
+        </article>
+
+        <article class="post">
+            <h3>Understanding JavaScript</h3>
+            <p class="post-meta">Published on November 10, 2024</p>
+            <p>As a beginner in JavaScript, it can be overwhelming at first, but with practice and small projects, confidence grows as you start solving problems and understanding the language.</p>
+            <a href="" class="read-more">Read More</a>
+        </article>
+
+
+
+        <article class="post">
+            <h3>CSS Grid vs Flexbox: Which One Should You Use?</h3>
+            <p class="post-meta">Published on October 30, 2024</p>
+            <p>CSS Grid and Flexbox are two layout models that help developers create responsive and well-structured web designs...</p>
+            <a href="" class="read-more">Read More</a>
+        </article>
+    </section>
+    
+    <section class="social-links">
+            <ul>
+                <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourprofile" target="_blank">GitHub</a></li>
+            </ul>
+    </section>
+
+    <script>
+        // Form validation before submission
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", function(event) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Basic validation for empty fields
+            if (!name || !email || !message) {
+                alert("All fields must be filled out before submitting.");
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+
+        // Toggle the "Read More" functionality for blog posts
+        const readMoreLinks = document.querySelectorAll(".read-more");
+        readMoreLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent the default link action
+                const post = this.closest(".post");
+                const fullText = post.querySelector(".post-full");
+                const excerpt = post.querySelector(".post-excerpt");
+
+                // Toggle visibility of the full text and excerpt
+                if (fullText.style.display === "none") {
+                    fullText.style.display = "block";
+                    excerpt.style.display = "none";
+                    this.textContent = "Read Less"; // Change link text
+                } else {
+                    fullText.style.display = "none";
+                    excerpt.style.display = "block";
+                    this.textContent = "Read More"; // Reset link text
+                }
+            });
+        });
+    </script>
+</body>
+</html>

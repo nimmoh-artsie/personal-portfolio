@@ -1,0 +1,313 @@
+/* Ensure body and html take full width and height */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #F5F5DC; /* Light beige background color */
+}
+
+/* Basic container styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+/* Glass container setup */
+.glass-container {
+    background: #FF00BF; /* Set glass-container background to the desired color */
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Limit width for large screens */
+    padding: 30px;
+    color: white; /* Set text color inside the glass container */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Make the text white */
+    text-decoration: none; /* Remove any underline if there was any */
+}
+
+/* Remove list styling for nav links */
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-link a:hover {
+    color: #FF00BF;
+}
+
+/* Hamburger icon (hidden by default) */
+.hamburger {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 4px;
+    background-color: white; /* Hamburger bars are white */
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu behavior (hidden by default) */
+.nav-links {
+    display: flex;
+}
+
+.nav-links.active {
+    display: block; /* Show links when 'active' */
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Background color */
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.nav-links li {
+    margin: 10px 0;
+}
+
+.nav-links li a {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #000000;
+}
+
+/* Content and image wrapper styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px; /* Space between content and image */
+    transition: margin-left 0.3s;
+}
+
+.main, .image-wrapper {
+    flex: 1;
+    height: 500px; /* Reduced height of both content and image */
+    width: 500px; /* Set width of both to match image width */
+    padding: 20px;
+    background: #fff; /* Card background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensuring main and image-wrapper have equal size */
+.main, .image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Header text color change to black */
+.main h2, .main p {
+    color: #000000; /* Header text color black */
+}
+
+/* Footer and footer links */
+footer {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+footer a {
+    font-size: 20px;
+    color: #FF00BF;
+}
+
+footer a:hover {
+    color: #ff3385;
+}
+
+/* Image styling */
+.image-wrapper img {
+    width: 100%;
+    height: 100%; /* Ensure the image fills the container */
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    border-radius: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    /* Glass container takes full width on smaller screens */
+    .glass-container {
+        padding: 20px;
+    }
+
+    .content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        gap: 20px; /* Space between content and image */
+    }
+
+    .main, .image-wrapper {
+        width: 100%; /* Ensure full width for smaller screens */
+        height: auto; /* Allow height to adjust for smaller devices */
+        min-width: unset; /* Remove the minimum width constraint */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .image-wrapper img {
+        max-width: 100%; /* Image will take the full width of the container */
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* Space out the logo and hamburger */
+        align-items: center;
+        width: 100%;
+        padding: 10px 20px; /* Ensure padding around the logo and hamburger */
+    }
+
+    /* Logo styling: Ensure it’s properly positioned with enough space on the right */
+    .navbar .logo {
+        position: absolute;   /* Position logo absolutely within the navbar */
+        right: 30px;           /* Right align the logo with a small margin */
+        top: 50%;              /* Vertically center the logo */
+        transform: translateY(-50%); /* Perfect vertical centering */
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Hamburger styling: Make sure it's not cramped */
+    .hamburger {
+        position: absolute;    /* Position hamburger absolutely within the navbar */
+        left: 20px;            /* Left align the hamburger with a small margin */
+        top: 50%;              /* Vertically center the hamburger */
+        transform: translateY(-50%); /* Perfect vertical centering */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        position: absolute;
+        top: 80px;  /* Adjust to your navbar height */
+        right: 20px;
+        background-color: #FF00BF;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+    }
+    /* X icon (hidden by default) */
+    .hamburger .close-x {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 24px;
+        color: #e3e2e3;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;  /* Ensure the "X" is in front */
+    }
+
+    .hamburger.active .bar {
+        display: none; /* Hide the bars when the X icon is visible */
+    }
+
+    .nav-links.active {
+        display: block; /* Show the menu when 'active' */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+    }  
+    
+    /* When the hamburger menu is clicked */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg); /* Top bar to form the "X" */
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;  /* Hide the middle bar */
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg); /* Bottom bar to form the "X" */
+    }
+}
+
+/* For very small devices */
+@media (max-width: 480px) {
+    .navbar .logo a {
+        font-size: 20px;
+    }
+
+    .nav-link a {
+        font-size: 16px;
+    }
+
+    .main h2 {
+        font-size: 24px;
+    }
+
+    .main p {
+        font-size: 16px;
+    }
+}
